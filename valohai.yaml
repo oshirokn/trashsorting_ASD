@@ -5,4 +5,4 @@
     command: python preprocess.py
     inputs:
       - name: archive.zip
-        default: https://valohaidemo.blob.core.windows.net/asd-trash/archive.zip
+        default: https://a3s.fi/swift/v1/AUTH_f8a5dbc8033343aea820c139245afe13/asd-trash/archive.zip
