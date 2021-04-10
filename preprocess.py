@@ -9,11 +9,12 @@ from os import listdir
 def main():
 
     # get a path to the main input
+    archive_file = 'archive.zip'
     INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
-    archive_path = os.path.join(INPUTS_DIR, 'archive.zip')
+    archive_path = os.path.join(INPUTS_DIR, archive_file)
 
     # unzip the folder
-    with ZipFile('Mail3.zip', 'r') as zipObj:
+    with ZipFile(archive_file, 'r') as zipObj:
     # Extract all the contents of zip file in current directory
         zipObj.extractall()
 
