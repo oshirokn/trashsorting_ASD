@@ -11,14 +11,17 @@ def main():
     # get a path to the main input
     INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
     print(listdir(INPUTS_DIR))
-    os.chdir('./zipfileishere')
+    pathtozip = os.path.join(INPUTS_DIR,'zipfileishere')
+    print(listdir(pathtozip))
+    os.chdir(pathtozip)
     print(os.getcwd())
     print(listdir())
     # archive_path = os.path.join(INPUTS_DIR, archive_file)
 
     # unzip the folder
-    print(os.path.isfile('./zipfileishere/archive.zip'))
-    with ZipFile('./zipfileishere/archive.zip', 'r') as zipObj:
+    pathtozip = os.path.join(INPUTS_DIR,'zipfileishere/archive.zip')
+    print(os.path.isfile(pathtozip))
+    with ZipFile(pathtozip, 'r') as zipObj:
     # Extract all the contents of zip file in current directory
         zipObj.extractall()
     print('Files extracted')
