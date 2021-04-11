@@ -11,6 +11,7 @@ def main():
     # get a path to the main input
     archive_file = 'archive.zip'
     INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
+    print(listdir(INPUTS_DIR))
     archive_path = os.path.join(INPUTS_DIR, archive_file)
 
     # unzip the folder
