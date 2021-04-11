@@ -9,16 +9,16 @@ from os import listdir
 def main():
 
     # get a path to the main input
-    INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs/zipfileishere')
+    INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
     print(listdir(INPUTS_DIR))
-    os.chdir(INPUTS_DIR)
+    os.chdir('./zipfileishere')
     print(os.getcwd())
     print(listdir())
     # archive_path = os.path.join(INPUTS_DIR, archive_file)
 
     # unzip the folder
-    print(os.path.isfile('archive.zip'))
-    with ZipFile('archive.zip', 'r') as zipObj:
+    print(os.path.isfile('./zipfileishere/archive.zip'))
+    with ZipFile('./zipfileishere/archive.zip', 'r') as zipObj:
     # Extract all the contents of zip file in current directory
         zipObj.extractall()
     print('Files extracted')
