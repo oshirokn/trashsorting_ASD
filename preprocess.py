@@ -6,7 +6,7 @@ import os
 from os import listdir
    
 
-def main():
+def main(): 
 
     # get a path to the main input
     archive_file = 'archive.zip'
