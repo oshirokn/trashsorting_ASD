@@ -32,7 +32,7 @@ def main():
     paths=[]
     labels=[]
     for folder in listdir(archive_path):
-        for picture in listdir(folder):
+        for picture in listdir(os.path.join(archive_path, folder)):
             _ = os.path.join(os.path.join(archive_path, folder), picture)
             paths.append(_)
             labels.append(folder)
