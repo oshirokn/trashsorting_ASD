@@ -12,10 +12,10 @@ def main():
     archive_file = 'archive.zip'
     INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
     print(listdir(INPUTS_DIR))
-    archive_path = os.path.join(INPUTS_DIR, archive_file)
+    # archive_path = os.path.join(INPUTS_DIR, archive_file)
 
     # unzip the folder
-    with ZipFile(archive_path, 'r') as zipObj:
+    with ZipFile(INPUTS_DIR + archive_file, 'r') as zipObj:
     # Extract all the contents of zip file in current directory
         zipObj.extractall()
 
