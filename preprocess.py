@@ -15,7 +15,7 @@ def main():
     archive_path = os.path.join(INPUTS_DIR, archive_file)
 
     # unzip the folder
-    with ZipFile('archive.zip', 'r') as zipObj:
+    with ZipFile(archive_path, 'r') as zipObj:
     # Extract all the contents of zip file in current directory
         zipObj.extractall()
 
