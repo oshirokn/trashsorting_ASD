@@ -27,8 +27,7 @@ def main():
     print('Files extracted')
 
     # Take a path to each one of the folder+file
-    os.chdir(pathtozip)
-    print(listdir())
+    print(listdir(os.path.join(INPUTS_DIR,'zipfileishere')))
     archive_path = os.path.join(INPUTS_DIR, 'zipfileishere/garbage_classification')
     paths=[]
     labels=[]
