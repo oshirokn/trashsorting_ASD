@@ -6,11 +6,10 @@ import os
 from os import listdir
    
 
-def main(): 
+def main():
 
     # get a path to the main input
-    archive_file = 'archive.zip'
-    INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs')
+    INPUTS_DIR = os.getenv('VH_INPUTS_DIR', './inputs/zipfileishere')
     print(listdir(INPUTS_DIR))
     os.chdir(INPUTS_DIR)
     print(os.getcwd())
