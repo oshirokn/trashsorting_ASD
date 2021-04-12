@@ -2,7 +2,9 @@
     name: Preprocess dataset
     image: tensorflow/tensorflow:1.13.1-py3
     environment: azure-westeurope-f2sv2
-    command: python preprocess.py
+    command: 
+      - pip install --disable-pip-version-check -q -r requirements.txt
+      - python preprocess.py
     inputs:
       - name: zipfileishere
         default: https://a3s.fi/swift/v1/AUTH_f8a5dbc8033343aea820c139245afe13/asd-trash/archive.zip
