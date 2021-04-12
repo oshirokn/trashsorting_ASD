@@ -2,16 +2,13 @@ import numpy as np
 import pandas as pd 
 import random
 import os
-import matplotlib.pyplot as plt
 import keras.applications.xception as xception
 import zipfile
-import sys
-import time
 import tensorflow.keras as keras
 import tensorflow as tf
 import re
 
-from PIL import Image
+# from PIL import Image
 from keras.layers import Input, Conv2D, Dense, Flatten, MaxPooling2D, Input, GlobalAveragePooling2D
 from keras.layers.experimental.preprocessing import Normalization
 from keras.models import Model, Sequential
@@ -166,7 +163,7 @@ history = model.fit_generator(
     callbacks=callbacks
 )
 
-model.save_weights("model.h5")
+model.save_weights("model.h5") # modify this to save the output properly <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 test_datagen = image.ImageDataGenerator()
 
