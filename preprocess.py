@@ -133,6 +133,8 @@ def main():
 
     print('train size = ', total_validate , 'validate size = ', total_validate, 'test size = ', test_df.shape[0])
 
+    base_path = archive_path
+
     batch_size=64
     train_datagen = image.ImageDataGenerator(
         
