@@ -60,11 +60,11 @@ def get_paths():
 
     path_to_model = os.path.join(INPUTS_DIR, 'xception-model/xception_weights_tf_dim_ordering_tf_kernels_notop.h5')
 
-    return paths,labels,path_to_model
+    return paths,labels,path_to_model,archive_path
 
 
 def main():
-    paths,labels,path_to_model = get_paths()
+    paths,labels,path_to_model,archive_path = get_paths()
     df = pd.DataFrame({
     'filename': paths,
     'category': labels
