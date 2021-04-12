@@ -76,7 +76,6 @@ def main():
     'category': labels
     })
 
-    df = add_class_name_prefix(df, 'filename')
     # Shuffle the dataframe
     df = df.sample(frac=1).reset_index(drop=True)
 
