@@ -8,5 +8,5 @@
     inputs:
       - name: zipfileishere
         default: https://a3s.fi/swift/v1/AUTH_f8a5dbc8033343aea820c139245afe13/asd-trash/archive.zip
-        - name: xception-model
+      - name: xception-model
         default: https://a3s.fi/swift/v1/AUTH_f8a5dbc8033343aea820c139245afe13/asd-trash/xception/xception_weights_tf_dim_ordering_tf_kernels_notop.h5
