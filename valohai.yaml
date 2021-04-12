@@ -4,6 +4,9 @@
     environment: azure-westeurope-f2sv2
     command: 
       - pip install --disable-pip-version-check -q -r requirements.txt
+      - pip install pandas
+      - pip install tensorflow
+      - pip install keras
       - python preprocess.py
     inputs:
       - name: zipfileishere
