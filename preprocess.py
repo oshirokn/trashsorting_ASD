@@ -62,12 +62,6 @@ def get_paths():
 
     return paths,labels,path_to_model
 
-def constants():
-    # Defining constants
-    IMAGE_WIDTH = 320    
-    IMAGE_HEIGHT = 320
-    IMAGE_SIZE=(IMAGE_WIDTH, IMAGE_HEIGHT)
-    IMAGE_CHANNELS = 3
 
 def main():
     paths,labels,path_to_model = get_paths()
@@ -83,6 +77,12 @@ def main():
     print(df)
 
     # Modelling
+
+    # Defining constants
+    IMAGE_WIDTH = 320    
+    IMAGE_HEIGHT = 320
+    IMAGE_SIZE=(IMAGE_WIDTH, IMAGE_HEIGHT)
+    IMAGE_CHANNELS = 3
 
     from keras.models import Sequential
     from keras.layers import Conv2D, MaxPooling2D, Dropout, Flatten, Dense, Activation, BatchNormalization
@@ -229,5 +229,4 @@ def main():
 
 if __name__ == '__main__':
     get_paths()
-    constants()
     main()
