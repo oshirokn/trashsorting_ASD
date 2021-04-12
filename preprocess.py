@@ -58,7 +58,7 @@ def get_paths():
             labels.append(folder)
         print('Completed for ',folder)
 
-    path_to_model = os.path.join(INPUTS_DIR, 'xception-model')
+    path_to_model = os.path.join(INPUTS_DIR, 'xception-model/xception_weights_tf_dim_ordering_tf_kernels_notop.h5')
 
     return paths,labels,path_to_model
 
