@@ -105,7 +105,7 @@ def main():
 
     model.add(xception_layer)
     model.add(tf.keras.layers.GlobalAveragePooling2D())
-    model.add(Dense(len(categories), activation='softmax')) 
+    model.add(Dense(len(set(labels)), activation='softmax')) 
 
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['categorical_accuracy'])
 
