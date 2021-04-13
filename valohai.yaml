@@ -5,8 +5,7 @@
     command: 
       - pip install --disable-pip-version-check -q -r requirements.txt
       - pip install pandas
-      - pip install tensorflow
-      - pip install keras
+      - pip install pillow
       - python preprocess.py
     inputs:
       - name: zipfileishere

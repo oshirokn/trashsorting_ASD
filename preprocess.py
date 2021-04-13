@@ -12,7 +12,7 @@ import tensorflow.keras as keras
 import tensorflow as tf
 import re
 
-# from PIL import Image
+from PIL import Image
 from keras.layers import Input, Conv2D, Dense, Flatten, MaxPooling2D, Input, GlobalAveragePooling2D
 # from keras.layers.experimental.preprocessing import Normalization
 from keras.models import Model, Sequential
