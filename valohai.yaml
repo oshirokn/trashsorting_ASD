@@ -7,7 +7,7 @@
       - pip install pandas
       - pip install tensorflow
       - pip install keras
-      ´pip install pillow
+      - pip install pillow
       - python preprocess.py
     inputs:
       - name: zipfileishere
