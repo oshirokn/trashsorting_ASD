@@ -1,8 +1,5 @@
-tensorflow>==2.2.0
-Keras>==2.3.1
+tensorflow
+Keras
 pandas
 sklearn
 requests
-dask
-dask-ml
-joblib

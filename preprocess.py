@@ -6,15 +6,15 @@ import numpy as np
 import pandas as pd 
 import random
 import os
-import keras.applications.xception as xception
 import zipfile
 import tensorflow.keras as keras
+import keras.applications.xception as xception
 import tensorflow as tf
 import re
 
 from PIL import Image
 from keras.layers import Input, Conv2D, Dense, Flatten, MaxPooling2D, Input, GlobalAveragePooling2D
-# from keras.layers.experimental.preprocessing import Normalization
+from keras.layers.experimental.preprocessing import Normalization
 from keras.models import Model, Sequential
 from keras.preprocessing import image
 from keras.utils import to_categorical
