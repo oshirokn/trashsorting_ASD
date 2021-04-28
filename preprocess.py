@@ -234,9 +234,26 @@ def to_lite(model):
     # Converting a tf.Keras model to a TensorFlow Lite model.
     converter = tf.lite.TFLiteConverter.from_keras_model(model)
     tflite_model = converter.convert()
+    return tflite_model
+
+def save_output(model):
+
+    outputs_dir = os.getenv('VH_OUTPUTS_DIR', './outputs')
+
+    if not os.path.isdir(outputs_dir):
+        os.makedirs(outputs_dir)
+
+    save_path = os.path.join (outputs_dir, 'model.tflite')
+
+    # Save the model.
+    with open(save_path, 'wb') as f:
+        f.write(model)
+
+    print('Model was saved')
 
 
 if __name__ == '__main__':
     get_paths()
     model = main()
-    to_lite(model)
+    tflite_model = to_lite(model)
+    save_output(tflite_model)
