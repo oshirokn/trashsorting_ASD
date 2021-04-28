@@ -226,9 +226,17 @@ def main():
     labels = test_df['category'].to_numpy()
 
     print(classification_report(labels, preds))
-    print('accuracy on test set = ',  round((accuracy * 100),2 ), '% ') 
+    print('accuracy on test set = ',  round((accuracy * 100),2 ), '% ')
+
+    return model
+
+def to_lite(model):
+    # Converting a tf.Keras model to a TensorFlow Lite model.
+    converter = tf.lite.TFLiteConverter.from_keras_model(model)
+    tflite_model = converter.convert()
 
 
 if __name__ == '__main__':
     get_paths()
-    main()
+    model = main()
+    to_lite(model)
