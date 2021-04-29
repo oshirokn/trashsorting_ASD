@@ -173,7 +173,7 @@ def main():
         batch_size=batch_size
     )
 
-    EPOCHS = 20
+    EPOCHS = 10
     history = model.fit_generator(
         train_generator, 
         epochs=EPOCHS,
