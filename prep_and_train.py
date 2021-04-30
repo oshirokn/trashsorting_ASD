@@ -243,9 +243,7 @@ def save_keras(model):
     if not os.path.isdir(outputs_dir):
         os.makedirs(outputs_dir)
 
-    save_path = os.path.join (outputs_dir, 'model.tflite')
-
-    model.save(save_path)
+    model.save(outputs_dir)
 
 def save_lite(model):
 
@@ -254,7 +252,7 @@ def save_lite(model):
     if not os.path.isdir(outputs_dir):
         os.makedirs(outputs_dir)
 
-    save_path = os.path.join (outputs_dir, 'model.tflite')
+    save_path = os.path.join (outputs_dir, model+'.tflite')
 
     # Save the model.
     with open(save_path, 'wb') as f:
@@ -266,7 +264,7 @@ def save_lite(model):
 if __name__ == '__main__':
     get_paths()
     model = main()
-    save_keras(model)
+    save_keras
     tflite_model = to_lite(model)
     save_lite(tflite_model)
     
