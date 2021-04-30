@@ -191,7 +191,19 @@ def main():
         callbacks=callbacks
     )
 
-    # model.save_weights("model.h5") # modify this to save the output properly <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    # serialize model weights
+    outputs_dir = os.getenv('VH_OUTPUTS_DIR', './outputs')
+    if not os.path.isdir(outputs_dir):
+        os.makedirs(outputs_dir)
+    save_path = os.path.join (outputs_dir, "model.h5")
+    model.save_weights(save_path)
+    # serialize model to JSON
+    model_json = model.to_json()
+    save_path = os.path.join (outputs_dir, "model.json")
+    with open(save_path, "w") as json_file:
+        json_file.write(model_json)
+
+    
 
     # Apply model to test and calculate accuracy 
     test_datagen = image.ImageDataGenerator()
@@ -274,6 +286,5 @@ def save_lite(model):
 
 if __name__ == '__main__':
     get_paths()
-    keras_model = main()
-    save_keras(keras_model)
+    main()
     
