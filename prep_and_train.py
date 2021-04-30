@@ -243,7 +243,7 @@ def save_keras(model):
     if not os.path.isdir(outputs_dir):
         os.makedirs(outputs_dir)
 
-    model.save(outputs_dir)
+    model.save(outputs_dir) # save keras .h5 model
 
 def save_lite(model):
 
@@ -263,8 +263,6 @@ def save_lite(model):
 
 if __name__ == '__main__':
     get_paths()
-    model = main()
-    save_keras
-    tflite_model = to_lite(model)
-    save_lite(tflite_model)
+    keras_model = main()
+    save_keras(keras_model)
     
