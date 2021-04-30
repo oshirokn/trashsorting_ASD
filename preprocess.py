@@ -89,7 +89,7 @@ def main():
     import keras.applications.xception as xception
 
     xception_layer = xception.Xception(include_top = False, input_shape = (IMAGE_WIDTH, IMAGE_HEIGHT,IMAGE_CHANNELS),
-                        weights = path_to_model) # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< fetch the xception pre trained layers
+                        weights = path_to_model) 
 
     # We don't want to train the imported weights
     xception_layer.trainable = False
@@ -131,7 +131,7 @@ def main():
     callbacks = [early_stop]
     print('call back defined!')
 
-    print('train size = ', total_validate , 'validate size = ', total_validate, 'test size = ', test_df.shape[0])
+    print('train size = ', total_train , 'validate size = ', total_validate, 'test size = ', test_df.shape[0])
 
     base_path = archive_path
 
@@ -257,3 +257,4 @@ if __name__ == '__main__':
     model = main()
     tflite_model = to_lite(model)
     save_output(tflite_model)
+    save_output(model)
