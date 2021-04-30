@@ -236,7 +236,18 @@ def to_lite(model):
     tflite_model = converter.convert()
     return tflite_model
 
-def save_output(model):
+def save_keras(model):
+    
+    outputs_dir = os.getenv('VH_OUTPUTS_DIR', './outputs')
+
+    if not os.path.isdir(outputs_dir):
+        os.makedirs(outputs_dir)
+
+    save_path = os.path.join (outputs_dir, 'model.tflite')
+
+    model.save(save_path)
+
+def save_lite(model):
 
     outputs_dir = os.getenv('VH_OUTPUTS_DIR', './outputs')
 
@@ -255,6 +266,7 @@ def save_output(model):
 if __name__ == '__main__':
     get_paths()
     model = main()
+    save_keras(model)
     tflite_model = to_lite(model)
-    save_output(tflite_model)
-    save_output(model)
+    save_lite(tflite_model)
+    
