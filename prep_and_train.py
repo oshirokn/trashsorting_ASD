@@ -94,7 +94,11 @@ def main():
     # We don't want to train the imported weights
     xception_layer.trainable = False
 
+
+    # initialize object
     model = Sequential()
+
+    # input of shape 320x320x3 
     model.add(keras.Input(shape=(IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_CHANNELS)))
 
     #create a custom layer to apply the preprocessing
@@ -116,7 +120,7 @@ def main():
 
     # Splitting
 
-    # We first split the data into two sets and then split the validate_df to two sets
+    # We first split the data into two sets and then split the validate_df to two sets, test and validation
     train_df, validate_df = train_test_split(df, test_size=0.2, random_state=42)
     validate_df, test_df = train_test_split(validate_df, test_size=0.5, random_state=42)
 
@@ -135,6 +139,7 @@ def main():
 
     base_path = archive_path
 
+    # data augmentation set up
     batch_size=64
     train_datagen = image.ImageDataGenerator(
         
@@ -151,6 +156,7 @@ def main():
         ##  Augmentation End  ###
     )
 
+    # get input from train dataset
     train_generator = train_datagen.flow_from_dataframe(
         train_df, 
         base_path, 
@@ -161,6 +167,7 @@ def main():
         batch_size=batch_size
     )
 
+    # augmentation is not applied to the validation dataset
     validation_datagen = image.ImageDataGenerator()
 
     validation_generator = validation_datagen.flow_from_dataframe(
@@ -173,6 +180,7 @@ def main():
         batch_size=batch_size
     )
 
+    # fit the model
     EPOCHS = 10
     history = model.fit_generator(
         train_generator, 
@@ -185,6 +193,7 @@ def main():
 
     # model.save_weights("model.h5") # modify this to save the output properly <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
+    # Apply model to test and calculate accuracy 
     test_datagen = image.ImageDataGenerator()
 
     test_generator = test_datagen.flow_from_dataframe(
@@ -242,8 +251,10 @@ def save_keras(model):
 
     if not os.path.isdir(outputs_dir):
         os.makedirs(outputs_dir)
+    
+    save_path = os.path.join (outputs_dir, "model.h5")
 
-    model.save(outputs_dir) # save keras .h5 model
+    model.save_weights(save_path) #model.save(outputs_dir) # save keras .h5 model
 
 def save_lite(model):
 
