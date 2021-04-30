@@ -1,5 +1,5 @@
 - step:
-    name: Preprocess dataset
+    name: Prep and train
     image: tensorflow/tensorflow:2.4.1
     environment: azure-westeurope-f2sv2
     command: 
@@ -8,7 +8,7 @@
       - pip install tensorflow
       - pip install keras
       - pip install pillow
-      - python preprocess.py
+      - python prep_and_train.py
     inputs:
       - name: zipfileishere
         default: https://a3s.fi/swift/v1/AUTH_f8a5dbc8033343aea820c139245afe13/asd-trash/archive.zip
