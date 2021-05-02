@@ -153,7 +153,7 @@ def main():
         width_shift_range=0.2,
         height_shift_range=0.2,
         channel_shift_range=0.2,
-        brightness_range=(0.2, 0.8)
+        brightness_range=(0.2, 0.8),
         rescale=1./255
         
         ##  Augmentation End  ###
